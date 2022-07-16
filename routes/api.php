@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\customer\homecontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,19 @@ Route::get('show-dresses','AddDressController@show');
 Route::get('show-dressid/{id}','AddDressController@showid');
 Route::get('show-cat','CategoryController@showcat');
 });
+
+#dodo===============================================================================================================
+
+Route::group(['middleware'=>'auth.guard:api','namespace' => 'App\Http\Controllers\customer', 'prefix' => 'customer'], function () {
+    Route::post('requestorder/{id}',[homecontroller::class,'requestorder']);
+
+    
+    });
+
+    Route::get('showspacificdress/{id}',[homecontroller::class,'showspacificdress']);
+    Route::get('viewdresses',[homecontroller::class,'viewdresses']);
+    Route::get('viewcategories',[homecontroller::class,'viewcategories']);
+
+    Route::get('showdressdetails/{id}',[homecontroller::class,'showdressdetails']);
+
+    
