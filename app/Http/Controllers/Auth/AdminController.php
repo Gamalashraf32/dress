@@ -14,7 +14,7 @@ use Illuminate\Validation\Rule;
 class AdminController extends Controller
 {
     use ResponseTrait;
-
+    
     public function login(Request $request)
     {
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
